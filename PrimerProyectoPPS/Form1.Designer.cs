@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            RegistroPorListaField = new TextBox();
+            label7 = new Label();
+            botonGuardar = new Button();
             listaAnimes = new ListBox();
-            textBox5 = new TextBox();
+            registosField = new TextBox();
             label6 = new Label();
-            button2 = new Button();
-            button1 = new Button();
+            botonEliminar = new Button();
+            botonInsertar = new Button();
+            botonAceptar = new Button();
+            botonCancelar = new Button();
+            botonModificar = new Button();
             botonAvanzar = new Button();
             botonRetroceder = new Button();
             AlturaField = new TextBox();
@@ -62,14 +68,20 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(RegistroPorListaField);
+            splitContainer1.Panel1.Controls.Add(label7);
+            splitContainer1.Panel1.Controls.Add(botonGuardar);
             splitContainer1.Panel1.Controls.Add(listaAnimes);
-            splitContainer1.Panel1.Controls.Add(textBox5);
+            splitContainer1.Panel1.Controls.Add(registosField);
             splitContainer1.Panel1.Controls.Add(label6);
-            splitContainer1.Panel1.Controls.Add(button2);
-            splitContainer1.Panel1.Controls.Add(button1);
+            splitContainer1.Panel1.Controls.Add(botonEliminar);
+            splitContainer1.Panel1.Controls.Add(botonInsertar);
+            splitContainer1.Panel1.Controls.Add(botonAceptar);
+            splitContainer1.Panel1.Controls.Add(botonCancelar);
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(botonModificar);
             splitContainer1.Panel2.Controls.Add(botonAvanzar);
             splitContainer1.Panel2.Controls.Add(botonRetroceder);
             splitContainer1.Panel2.Controls.Add(AlturaField);
@@ -87,6 +99,33 @@
             splitContainer1.SplitterDistance = 272;
             splitContainer1.TabIndex = 0;
             // 
+            // RegistroPorListaField
+            // 
+            RegistroPorListaField.Location = new Point(143, 335);
+            RegistroPorListaField.Name = "RegistroPorListaField";
+            RegistroPorListaField.Size = new Size(47, 23);
+            RegistroPorListaField.TabIndex = 10;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.FlatStyle = FlatStyle.System;
+            label7.Location = new Point(12, 339);
+            label7.Name = "label7";
+            label7.Size = new Size(114, 15);
+            label7.TabIndex = 9;
+            label7.Text = "Nº registros por lista";
+            // 
+            // botonGuardar
+            // 
+            botonGuardar.Location = new Point(68, 501);
+            botonGuardar.Name = "botonGuardar";
+            botonGuardar.Size = new Size(136, 127);
+            botonGuardar.TabIndex = 8;
+            botonGuardar.Text = "GUARDAR DATOS";
+            botonGuardar.UseVisualStyleBackColor = true;
+            botonGuardar.Click += botonGuardar_Click;
+            // 
             // listaAnimes
             // 
             listaAnimes.FormattingEnabled = true;
@@ -97,44 +136,75 @@
             listaAnimes.TabIndex = 5;
             listaAnimes.SelectedIndexChanged += listaAnimes_SelectedIndexChanged;
             // 
-            // textBox5
+            // registosField
             // 
-            textBox5.Location = new Point(212, 300);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(48, 23);
-            textBox5.TabIndex = 4;
+            registosField.Location = new Point(142, 297);
+            registosField.Name = "registosField";
+            registosField.Size = new Size(48, 23);
+            registosField.TabIndex = 4;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(122, 303);
+            label6.Location = new Point(12, 300);
             label6.Name = "label6";
-            label6.Size = new Size(69, 15);
+            label6.Size = new Size(107, 15);
             label6.TabIndex = 3;
-            label6.Text = "Nº registros";
+            label6.Text = "Nº registros totales";
             label6.Click += label6_Click;
             // 
-            // button2
+            // botonEliminar
             // 
-            button2.Location = new Point(170, 377);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 32);
-            button2.TabIndex = 2;
-            button2.Text = "Eliminar";
-            button2.UseVisualStyleBackColor = true;
+            botonEliminar.Location = new Point(170, 405);
+            botonEliminar.Name = "botonEliminar";
+            botonEliminar.Size = new Size(90, 32);
+            botonEliminar.TabIndex = 2;
+            botonEliminar.Text = "Eliminar";
+            botonEliminar.UseVisualStyleBackColor = true;
+            botonEliminar.Click += button2_Click;
             // 
-            // button1
+            // botonInsertar
             // 
-            button1.Location = new Point(12, 377);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 32);
-            button1.TabIndex = 1;
-            button1.Text = "Insertar";
-            button1.UseVisualStyleBackColor = true;
+            botonInsertar.Location = new Point(12, 405);
+            botonInsertar.Name = "botonInsertar";
+            botonInsertar.Size = new Size(90, 32);
+            botonInsertar.TabIndex = 1;
+            botonInsertar.Text = "Insertar";
+            botonInsertar.UseVisualStyleBackColor = true;
+            botonInsertar.Click += botonInsertar_Click;
+            // 
+            // botonAceptar
+            // 
+            botonAceptar.Location = new Point(12, 405);
+            botonAceptar.Name = "botonAceptar";
+            botonAceptar.Size = new Size(90, 31);
+            botonAceptar.TabIndex = 6;
+            botonAceptar.Text = "Aceptar";
+            botonAceptar.UseVisualStyleBackColor = true;
+            botonAceptar.Click += botonAceptar_Click;
+            // 
+            // botonCancelar
+            // 
+            botonCancelar.Location = new Point(170, 405);
+            botonCancelar.Name = "botonCancelar";
+            botonCancelar.Size = new Size(90, 31);
+            botonCancelar.TabIndex = 7;
+            botonCancelar.Text = "Cancelar";
+            botonCancelar.UseVisualStyleBackColor = true;
+            // 
+            // botonModificar
+            // 
+            botonModificar.Location = new Point(299, 820);
+            botonModificar.Name = "botonModificar";
+            botonModificar.Size = new Size(109, 37);
+            botonModificar.TabIndex = 13;
+            botonModificar.Text = "MODIFICAR";
+            botonModificar.UseVisualStyleBackColor = true;
+            botonModificar.Click += botonModificar_Click;
             // 
             // botonAvanzar
             // 
-            botonAvanzar.Location = new Point(478, 820);
+            botonAvanzar.Location = new Point(520, 820);
             botonAvanzar.Name = "botonAvanzar";
             botonAvanzar.Size = new Size(103, 37);
             botonAvanzar.TabIndex = 12;
@@ -252,6 +322,7 @@
             pictureBox.Location = new Point(136, 49);
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(344, 223);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.TabIndex = 0;
             pictureBox.TabStop = false;
             // 
@@ -287,12 +358,18 @@
         private TextBox EdadField;
         private TextBox AnimeField;
         private Label label5;
-        private Button button1;
-        private Button button2;
+        private Button botonInsertar;
+        private Button botonEliminar;
         private Label label6;
-        private TextBox textBox5;
+        private TextBox registosField;
         private ListBox listaAnimes;
         private Button botonAvanzar;
         private Button botonRetroceder;
+        private Button botonAceptar;
+        private Button botonCancelar;
+        private Button botonModificar;
+        private Button botonGuardar;
+        private TextBox RegistroPorListaField;
+        private Label label7;
     }
 }
